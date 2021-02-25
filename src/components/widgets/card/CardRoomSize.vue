@@ -63,6 +63,10 @@ export default defineComponent({
         {
           text: '5',
           value: 5,
+        },
+        {
+          text: '15',
+          value: 15,
         },              
       ]
     })
