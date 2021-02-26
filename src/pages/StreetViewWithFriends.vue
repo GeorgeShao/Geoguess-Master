@@ -233,17 +233,18 @@ export default defineComponent({
       state.round += 1
       if (props.playerNumber === 1) {
         loadStreetView()
-        var PLAYERNUMBERS = 0
-        state.room!.on('value', (snapshot) => {
-          var PLAYERNUMBERS = snapshot.child('playerName').numChildren();
-          console.log("A", PLAYERNUMBERS)
-          for (var i = PLAYERNUMBERS;i>=1;i--){
-            state.room!.child('trigger/player' + i).set(state.round)
-            mapRef!.value!.startNextRound()
-            console.log("ADDED TRIGGER", i)
-          }
-          console.log("B", PLAYERNUMBERS)
-        })
+        state.isReady = true
+        // var PLAYERNUMBERS = 0
+        // state.room!.on('value', (snapshot) => {
+        //   var PLAYERNUMBERS = snapshot.child('playerName').numChildren();
+        //   console.log("A", PLAYERNUMBERS)
+        //   for (var i = PLAYERNUMBERS;i>=1;i--){
+        //     state.room!.child('trigger/player' + i).set(state.round)
+        //     mapRef!.value!.startNextRound()
+        //     console.log("ADDED TRIGGER", i)
+        //   }
+        //   console.log("B", PLAYERNUMBERS)
+        // })
         
         
         //var PLAYERNUMBERS = firebase.database().ref(props.roomName+'/size').val();
