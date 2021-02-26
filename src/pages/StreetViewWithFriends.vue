@@ -237,13 +237,15 @@ export default defineComponent({
         state.room!.on('value', (snapshot) => {
           var PLAYERNUMBERS = snapshot.child('playerName').numChildren();
           console.log("A", PLAYERNUMBERS)
+          for (var i = PLAYERNUMBERS;i>=2;i--){
+            state.room!.child('trigger/player' + i).set(state.round)
+            mapRef!.value!.startNextRound()
+            console.log("ADDED TRIGGER", i)
+          }
+          console.log("B", PLAYERNUMBERS)
         })
-        console.log("B", PLAYERNUMBERS)
-        for (var i = 2;i<=PLAYERNUMBERS;i++){
-          state.room!.child('trigger/player' + i).set(state.round)
-          mapRef!.value!.startNextRound()
-          console.log("ADDED", i)
-        }
+        
+        
         //var PLAYERNUMBERS = firebase.database().ref(props.roomName+'/size').val();
        
       } 
