@@ -233,7 +233,7 @@ export default defineComponent({
       state.round += 1
       if (props.playerNumber === 1) {
         loadStreetView()
-        var PLAYERNUMBERS = firebase.database().ref(props.roomName+"/size");
+        var PLAYERNUMBERS = firebase.database().ref(props.roomName+"/size").val();
         for (var i = 2;i<=PLAYERNUMBERS;i++){
           state.room!.child('trigger/player' + i).set(state.round)
           mapRef!.value!.startNextRound()
