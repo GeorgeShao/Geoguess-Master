@@ -236,12 +236,12 @@ export default defineComponent({
         var PLAYERNUMBERS = 0
         state.room!.on('value', (snapshot) => {
           var PLAYERNUMBERS = snapshot.child('playerName').numChildren();
-        }).then(()=>{
-          for (var i = 2;i<=PLAYERNUMBERS;i++){
-            state.room!.child('trigger/player' + i).set(state.round)
-            mapRef!.value!.startNextRound()
-          }
         })
+
+        for (var i = 2;i<=PLAYERNUMBERS;i++){
+          state.room!.child('trigger/player' + i).set(state.round)
+          mapRef!.value!.startNextRound()
+        }
         //var PLAYERNUMBERS = firebase.database().ref(props.roomName+'/size').val();
        
       } 
