@@ -236,11 +236,13 @@ export default defineComponent({
         var PLAYERNUMBERS = 0
         state.room!.on('value', (snapshot) => {
           var PLAYERNUMBERS = snapshot.child('playerName').numChildren();
+          console.log("A", PLAYERNUMBERS)
         })
-
+        console.log("B", PLAYERNUMBERS)
         for (var i = 2;i<=PLAYERNUMBERS;i++){
           state.room!.child('trigger/player' + i).set(state.round)
           mapRef!.value!.startNextRound()
+          console.log("ADDED", i)
         }
         //var PLAYERNUMBERS = firebase.database().ref(props.roomName+'/size').val();
        
