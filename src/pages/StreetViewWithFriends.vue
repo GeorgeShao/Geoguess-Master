@@ -233,11 +233,17 @@ export default defineComponent({
       state.round += 1
       if (props.playerNumber === 1) {
         loadStreetView()
-        var PLAYERNUMBERS = firebase.database().ref(props.roomName+"/size").val();
-        for (var i = 2;i<=PLAYERNUMBERS;i++){
-          state.room!.child('trigger/player' + i).set(state.round)
-          mapRef!.value!.startNextRound()
-        }
+        var PLAYERNUMBERS = 0
+        state.room!.on('value', (snapshot) => {
+          var PLAYERNUMBERS = snapshot.child('playerName').numChildren();
+        }).then(()=>{
+          for (var i = 2;i<=PLAYERNUMBERS;i++){
+            state.room!.child('trigger/player' + i).set(state.round)
+            mapRef!.value!.startNextRound()
+          }
+        })
+        //var PLAYERNUMBERS = firebase.database().ref(props.roomName+'/size').val();
+       
       } 
       // else {
       //   state.room!.child('trigger/player' + props.playerNumber).set(state.round)
