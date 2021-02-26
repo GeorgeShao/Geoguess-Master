@@ -298,7 +298,7 @@ export default defineComponent({
               let latLng = new google.maps.LatLng({lat: lat, lng: lng})
               let playerName = snapshot.child('playerName').child(childSnapshot!.key!).val()
               let distance = snapshot.child('round' + props.round + '/player' + j).val()
-              drawPolyline(latLng, i)
+              // drawPolyline(latLng, i)
               putMarker(latLng)
               setInfoWindow(playerName, distance)
               i++
