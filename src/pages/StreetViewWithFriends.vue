@@ -237,7 +237,7 @@ export default defineComponent({
         state.room!.on('value', (snapshot) => {
           var PLAYERNUMBERS = snapshot.child('playerName').numChildren();
           console.log("A", PLAYERNUMBERS)
-          for (var i = PLAYERNUMBERS;i>=2;i--){
+          for (var i = PLAYERNUMBERS;i>=1;i--){
             state.room!.child('trigger/player' + i).set(state.round)
             mapRef!.value!.startNextRound()
             console.log("ADDED TRIGGER", i)
