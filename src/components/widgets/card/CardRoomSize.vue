@@ -65,9 +65,37 @@ export default defineComponent({
           value: 5,
         },
         {
+          text: '10',
+          value: 10,
+        },
+        {
           text: '15',
           value: 15,
-        },              
+        },
+        {
+          text: '20',
+          value: 20,
+        },
+        {
+          text: '25',
+          value: 25,
+        },
+        {
+          text: '30',
+          value: 30,
+        },
+        {
+          text: '35',
+          value: 35,
+        },
+        {
+          text: '40',
+          value: 40,
+        },
+        {
+          text: '45',
+          value: 45,
+        },
       ]
     })
 
